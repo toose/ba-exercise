@@ -8,6 +8,10 @@ ENV PYTHONUNBUFFERED 1
 # create the app user
 RUN addgroup -S app && adduser -S app -G app
 
+# set timezone data
+RUN apk add --update tzdata
+ENV TZ=America/New_York
+
 # create the appropriate directories
 ENV APP_HOME=/usr/local/src
 RUN mkdir $APP_HOME
